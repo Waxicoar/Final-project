@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Explore how future climate scenarios change temperature trajectories and how a daily-temperature threshold can define summer." />
+  <title>Your Climate, Your Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="top-strip"><span class="strip-dot"></span> DSC 106 · FALL 2026 <span class="top-strip-right">INITIAL PROTOTYPE / 18 NOV 2026</span></div>
+  <header class="site-header" id="top">
+    <a class="logo" href="#top" aria-label="Your Climate Your Future home"><span class="logo-mark">◌</span> YOUR CLIMATE <span class="logo-light">/ YOUR FUTURE</span></a>
+    <nav class="site-nav" aria-label="Main navigation"><a href="#places">01 / Places</a><a href="#scenarios">02 / Scenarios</a><a href="#seasons">03 / Seasons</a><a href="#progress">04 / Progress</a></nav>
+    <span class="nav-status"><span></span> WORK IN PROGRESS</span>
+  </header>
+
+  <main>
+  
+
+    <section class="intro-panel section-wrap" aria-label="Project introduction">
+      <div class="intro-index">THE BIG QUESTION <span>↗</span></div>
+      <div class="intro-statement">What if climate change didn’t just make summers <em>hotter</em>—but made them <em>longer?</em></div>
+      <p>Our project investigates how a temperature-based definition of summer and winter may shift across cities under different Shared Socioeconomic Pathways (SSPs). This prototype introduces the story and tests its core interactions while the city-level daily data are being prepared.</p>
+    </section>
+
+    <section class="chapter chapter-places section-wrap" id="places" aria-labelledby="places-title">
+      <div class="section-heading"><div class="eyebrow"><span class="section-num">01</span> PLACE MATTERS</div><h2 id="places-title">Climate is <i>local.</i></h2><p>Start with a city. The final experience will calculate summer and winter using daily climate model data for that location—not a global average.</p></div>
+      <div class="places-layout">
+        <div class="globe-stage">
+          <div class="chart-topline"><span>LOCATION EXPLORER</span><span class="chart-topline-end">CLICK A MARKER</span></div>
+          <svg id="globe" role="img" aria-label="Interactive globe of example cities" viewBox="0 0 600 420"></svg>
+          <div class="globe-key"><span class="key-pip"></span> Select a city to focus the story</div>
+        </div>
+        <div class="city-details">
+          <div class="tiny-label">CITY SELECTED</div>
+          <div class="city-name" id="city-name">San Diego</div>
+          <div class="city-country" id="city-country">California · United States</div>
+          <div class="city-select-label">Or choose from the list</div>
+          <div class="city-pills" id="city-pills" role="group" aria-label="Select city"></div>
+          <div class="city-info" aria-live="polite">
+            <div class="city-info-icon">◎</div>
+            <div><strong id="city-question">How long is summer in San Diego?</strong><p>City-level CMIP6 daily temperatures are <strong>not connected yet</strong>. This section currently demonstrates navigation and the planned analysis workflow; no city-specific projection values are shown.</p></div>
+          </div>
+          <div class="mini-meta"><span>PLANNED BASELINE</span><strong>1950–1979 daily temperatures</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter chapter-scenarios" id="scenarios" aria-labelledby="scenarios-title">
+      <div class="section-wrap">
+        <div class="section-heading"><div class="eyebrow"><span class="section-num">02</span> THE CHOICES WE MAKE</div><h2 id="scenarios-title">One planet.<br/><i>Three pathways.</i></h2><p>These are verified, published <strong>global</strong> CanESM5 projections. Compare how dramatically the scenarios separate over time—before exploring why their local impacts may differ.</p></div>
+        <div class="scenario-layout">
+          <div class="viz-card">
+            <div class="viz-card-header"><div><span class="tiny-label">GLOBAL TEMPERATURE CHANGE</span><h3>How far apart could our futures be?</h3></div><span class="unit-label">°C above 1850–1900</span></div>
+            <div class="scenario-pills" id="scenario-pills" role="group" aria-label="Highlight scenario"></div>
+            <div id="chart-error" class="chart-error" hidden></div>
+            <div class="line-graph"><svg id="scenario-chart" role="img" aria-label="Chart of three climate scenarios by decade"></svg><div id="scenario-tooltip" class="chart-tooltip" hidden></div></div>
+            <div class="decade-control"><label for="decade-slider">EXPLORE DECADE <strong id="decade-value">2051–2060</strong></label><input id="decade-slider" type="range" min="0" max="7" step="1" value="3" aria-label="Select future decade" /></div>
+            <p class="chart-caption">Source: published CanESM5 model r1i1p1f1, global near-surface air temperature, 10-year means. Values are model projections, not observed city temperatures.</p>
+          </div>
+          <aside class="scenario-explain">
+            <div class="summary-eyebrow">FOCUS / <span id="active-scenario-label">ALL SCENARIOS</span></div>
+            <div class="stat-label" id="stat-label">Projection range this decade</div>
+            <div class="stat-value" id="stat-value">—</div><div class="stat-note" id="stat-note">Select a decade or a line to explore.</div>
+            <div class="explain-rule"></div><div class="tiny-label">WHAT DOES SSP MEAN?</div>
+            <div id="scenario-description" class="scenario-description">Shared Socioeconomic Pathways describe alternative futures with different societal and emissions assumptions. They are conditional projections—not promises about what will happen.</div>
+            <div class="scenario-context" id="scenario-context">Choose any pathway to understand its assumptions.</div>
+            <button id="reset-scenarios" class="text-button" type="button">Show all pathways <span>↗</span></button>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter chapter-seasons section-wrap" id="seasons" aria-labelledby="seasons-title">
+      <div class="section-heading"></div>
+      <div class="method-layout">
+        <div class="method-viz">
+          <div class="chart-topline"><span>INTERACTIVE METHOD SKETCH</span><span class="mock-badge">SCHEMATIC · NOT CMIP6 DATA</span></div>
+          <svg id="season-chart" role="img" aria-label="Illustrative yearly temperature line and summer temperature cutoff"></svg>
+          <div class="method-legend"><span><i class="legend-dot base"></i> Illustrative baseline year</span><span><i class="legend-dot future"></i> Hypothetical warmer year</span><span><i class="legend-dash"></i> Warm-season threshold</span></div>
+          <div class="warming-slider"><div class="warming-label"><label for="warming-input">Try a hypothetical temperature increase</label><span id="warming-value">+2.0°C</span></div><input id="warming-input" type="range" min="0" max="6" step="0.5" value="2" /><div class="slider-minmax"><span>0°C</span><span>+6°C</span></div></div>
+        </div>
+        <aside class="method-result">
+          <div class="tiny-label">WHAT CHANGES?</div><h3>Summer can stretch beyond the calendar.</h3>
+          <div class="metric-kicker">ILLUSTRATED WARM-SEASON LENGTH</div><div class="metric-value" id="summer-length">— <small>days</small></div>
+          <div class="metric-delta" id="summer-delta">—</div>
+          <div class="season-date-list"><div><span>First day above cutoff</span><strong id="summer-start">—</strong></div><div><span>Last day above cutoff</span><strong id="summer-end">—</strong></div><div><span>Baseline warm season</span><strong id="summer-baseline">—</strong></div></div>
+          <p class="method-caveat"><strong>Important:</strong> This is a conceptual illustration generated from a smooth seasonal curve, not a temperature projection for the selected city. Actual season dates and durations will be calculated only after processing city-level CMIP6 daily data.</p>
+        </aside>
+      </div>
+
+    <section class="chapter chapter-progress" id="progress" aria-labelledby="progress-title">
+        <div class="progress-grid">
+          <article class="progress-card"><span class="tiny-label">01 / WHAT WE'VE DONE SO FAR</span><h3>The foundation is here.</h3><p>We have organized the initial website into a location explorer, a scenario comparison, and an explanation of our season-definition method. The global scenario chart uses published CanESM5 CMIP6 temperature summaries and supports interactive scenario highlighting and decade selection. The location section provides a working city selector and shows how the future city-based experience will be structured. We also built an interactive schematic demonstrating how a fixed temperature threshold can change the measured length of summer.</p></article>
+          <article class="progress-card"><span class="tiny-label">02 / MOST CHALLENGING PART</span><h3>Turning climate grids into local seasons.</h3><p>The main challenge is extracting daily temperature series for individual cities from the large, cloud-hosted CMIP6 dataset. We need to establish a consistent 1950–1979 baseline and calculate thresholds using the same units and geographic selection rules across every scenario. A further design challenge is handling brief threshold crossings and winter seasons that span calendar years without producing misleading durations. Finally, we must make the results easy to understand while clearly communicating that SSPs are possible futures rather than certain predictions.</p></article>
+        </div>
+        <div class="roadmap"><div><span class="roadmap-label">NEXT STEPS</span><strong>City-level daily extraction</strong><span class="arrow-right">→</span><strong>Summer and winter calculations</strong><span class="arrow-right">→</span><strong>Guided annotations and polish</strong></div><span class="roadmap-tag">IN PROGRESS</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="section-wrap footer-main"><div class="footer-title">Your climate.<br/><span>Your future.</span></div><div class="footer-info"><div class="tiny-label">DSC 106 · FALL 2026</div><p>Chau Nguyen · Yuxuan Zhu<br/>Ricardo Campos Murillo · Andy Li</p><p>Initial prototype for instructional feedback. Global figures and the illustrative seasonal method intentionally use different kinds of data.</p></div><div class="footer-links"><div class="tiny-label">SOURCES & METHODS</div><a href="https://github.com/mathause/cmip_temperatures" target="_blank" rel="noopener noreferrer">CMIP6 global temperature summaries ↗</a><a href="https://www.nccs.nasa.gov/data-collections/nex-gddp-cmip6/" target="_blank" rel="noopener noreferrer">NASA daily downscaled CMIP6 ↗</a><a href="#top">Back to top ↑</a></div></div><div class="footer-bottom section-wrap"><span>NOT ALL CLIMATE CHANGE IS EQUAL</span><span>PROJECT PROTOTYPE · 2026</span></div></footer>
+</body>
+</html>
