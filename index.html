@@ -44,7 +44,7 @@
           <div class="city-pills" id="city-pills" role="group" aria-label="Select city"></div>
           <div class="city-info" aria-live="polite">
             <div class="city-info-icon">◎</div>
-            <div><strong id="city-question">How long is summer in San Diego?</strong><p>City-level CMIP6 daily temperatures are <strong>not connected yet</strong>. This section currently demonstrates navigation and the planned analysis workflow; no city-specific projection values are shown.</p></div>
+            <div><strong id="city-question">How long is summer in San Diego?</strong>
           </div>
           <div class="mini-meta"><span>PLANNED BASELINE</span><strong>1950–1979 daily temperatures</strong></div>
         </div>
@@ -59,7 +59,6 @@
             <div id="chart-error" class="chart-error" hidden></div>
             <div class="line-graph"><svg id="scenario-chart" role="img" aria-label="Chart of three climate scenarios by decade"></svg><div id="scenario-tooltip" class="chart-tooltip" hidden></div></div>
             <div class="decade-control"><label for="decade-slider">EXPLORE DECADE <strong id="decade-value">2051–2060</strong></label><input id="decade-slider" type="range" min="0" max="7" step="1" value="3" aria-label="Select future decade" /></div>
-            <p class="chart-caption">Source: published CanESM5 model r1i1p1f1, global near-surface air temperature, 10-year means. Values are model projections, not observed city temperatures.</p>
           </div>
           <aside class="scenario-explain">
             <div class="summary-eyebrow">FOCUS / <span id="active-scenario-label">ALL SCENARIOS</span></div>
@@ -86,11 +85,9 @@
 
     <section class="chapter chapter-progress" id="progress" aria-labelledby="progress-title">
         <div class="progress-grid">
-          <article class="progress-card"><span class="tiny-label">01 / WHAT WE'VE DONE SO FAR</span><h3>The foundation is here.</h3><p>We have organized the initial website into a location explorer, a scenario comparison, and an explanation of our season-definition method. The global scenario chart uses published CanESM5 CMIP6 temperature summaries and supports interactive scenario highlighting and decade selection. The location section provides a working city selector and shows how the future city-based experience will be structured. We also built an interactive schematic demonstrating how a fixed temperature threshold can change the measured length of summer.</p></article>
-          <article class="progress-card"><span class="tiny-label">02 / MOST CHALLENGING PART</span><h3>Turning climate grids into local seasons.</h3><p>The main challenge is extracting daily temperature series for individual cities from the large, cloud-hosted CMIP6 dataset. We need to establish a consistent 1950–1979 baseline and calculate thresholds using the same units and geographic selection rules across every scenario. A further design challenge is handling brief threshold crossings and winter seasons that span calendar years without producing misleading durations. Finally, we must make the results easy to understand while clearly communicating that SSPs are possible futures rather than certain predictions.</p></article>
+          <article class="progress-card"><span class="tiny-label">01 / WHAT WE'VE DONE SO FAR</span><p>We have organized the initial website into a location explorer, a scenario comparison, and an explanation of our season-definition method. The global scenario chart uses published CanESM5 CMIP6 temperature summaries and supports interactive scenario highlighting and decade selection. The location section provides a working city selector and shows how the future city-based experience will be structured. We also built an interactive schematic demonstrating how a fixed temperature threshold can change the measured length of summer.</p></article>
+          <article class="progress-card"><span class="tiny-label">02 / MOST CHALLENGING PART</span><p>The main challenge is extracting daily temperature series for individual cities from the large, cloud-hosted CMIP6 dataset. We need to establish a consistent 1950–1979 baseline and calculate thresholds using the same units and geographic selection rules across every scenario. A further design challenge is handling brief threshold crossings and winter seasons that span calendar years without producing misleading durations. Finally, we must make the results easy to understand while clearly communicating that SSPs are possible futures rather than certain predictions.</p></article>
         </div>
-        <div class="roadmap"><div><span class="roadmap-label">NEXT STEPS</span><strong>City-level daily extraction</strong><span class="arrow-right">→</span><strong>Summer and winter calculations</strong><span class="arrow-right">→</span><strong>Guided annotations and polish</strong></div><span class="roadmap-tag">IN PROGRESS</span></div>
-      </div>
     </section>
   </main>
 
