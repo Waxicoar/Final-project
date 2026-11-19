@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Explore how future climate scenarios change temperature trajectories and how a daily-temperature threshold can define summer." />
+  <title>Your Climate, Your Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <main>
+  
+
+    <section class="intro-panel section-wrap" aria-label="Project introduction">
+      <div class="intro-statement">What if climate change didn’t just make summers <em>hotter</em>—but made them <em>longer?</em></div>
+      <p>Our project investigates..</p>
+    </section>
+
+    <section class="chapter chapter-places section-wrap" id="places" aria-labelledby="places-title">
+      <div class="places-layout">
+        <div class="globe-stage">
+          <div class="chart-topline"><span>LOCATION EXPLORER</span><span class="chart-topline-end">CLICK A MARKER</span></div>
+          <svg id="globe" role="img" aria-label="Interactive globe of example cities" viewBox="0 0 600 420"></svg>
+          <div class="globe-key"><span class="key-pip"></span> Select a city to focus the story</div>
+        </div>
+        <div class="city-details">
+          <div class="tiny-label">CITY SELECTED</div>
+          <div class="city-name" id="city-name">San Diego</div>
+          <div class="city-country" id="city-country">California · United States</div>
+          <div class="city-select-label">Or choose from the list</div>
+          <div class="city-pills" id="city-pills" role="group" aria-label="Select city"></div>
+          <div class="city-info" aria-live="polite">
+          </div>
+          <div class="mini-meta"><span>PLANNED BASELINE</span><strong>1950–1979 daily temperatures</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter chapter-scenarios" id="scenarios" aria-labelledby="scenarios-title">
+      <div class="section-wrap">
+        <div class="scenario-layout">
+          <div class="viz-card">
+            <div class="scenario-pills" id="scenario-pills" role="group" aria-label="Highlight scenario"></div>
+            <div id="chart-error" class="chart-error" hidden></div>
+            <div class="line-graph"><svg id="scenario-chart" role="img" aria-label="Chart of three climate scenarios by decade"></svg><div id="scenario-tooltip" class="chart-tooltip" hidden></div></div>
+            <div class="decade-control"><label for="decade-slider">EXPLORE DECADE <strong id="decade-value">2051–2060</strong></label><input id="decade-slider" type="range" min="0" max="7" step="1" value="3" aria-label="Select future decade" /></div>
+          </div>
+          <aside class="scenario-explain">
+            <div class="summary-eyebrow">FOCUS / <span id="active-scenario-label">ALL SCENARIOS</span></div>
+            <div class="stat-label" id="stat-label">Projection range this decade</div>
+            <div class="stat-value" id="stat-value">—</div><div class="stat-note" id="stat-note">Select a decade or a line to explore.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter chapter-seasons section-wrap" id="seasons" aria-labelledby="seasons-title">
+      <div class="section-heading"></div>
+      <div class="method-layout">
+        <div class="method-viz">
+          <div class="chart-topline"><span>INTERACTIVE METHOD SKETCH</span><span class="mock-badge">SCHEMATIC · NOT CMIP6 DATA</span></div>
+          <svg id="season-chart" role="img" aria-label="Illustrative yearly temperature line and summer temperature cutoff"></svg>
+          <div class="method-legend"><span><i class="legend-dot base"></i> Illustrative baseline year</span><span><i class="legend-dot future"></i> Hypothetical warmer year</span><span><i class="legend-dash"></i> Warm-season threshold</span></div>
+          <div class="warming-slider"><div class="warming-label"><label for="warming-input">Try a hypothetical temperature increase</label><span id="warming-value">+2.0°C</span></div><input id="warming-input" type="range" min="0" max="6" step="0.5" value="2" /><div class="slider-minmax"><span>0°C</span><span>+6°C</span></div></div>
+        </div>
+        <aside class="method-result">
+          <div class="metric-kicker">ILLUSTRATED WARM-SEASON LENGTH</div><div class="metric-value" id="summer-length">— <small>days</small></div>
+          <div class="metric-delta" id="summer-delta">—</div>
+          <div class="season-date-list"><div><span>First day above cutoff</span><strong id="summer-start">—</strong></div><div><span>Last day above cutoff</span><strong id="summer-end">—</strong></div><div><span>Baseline warm season</span><strong id="summer-baseline">—</strong></div></div>
+      </div>
+
+    <section class="chapter chapter-progress" id="progress" aria-labelledby="progress-title">
+        <div class="progress-grid">
+          <article class="progress-card"><span class="tiny-label">01 / WHAT WE'VE DONE SO FAR</span><p>We have organized the initial website into a location explorer, a scenario comparison, and an explanation of our season-definition method. The global scenario chart uses published CanESM5 CMIP6 temperature summaries and supports interactive scenario highlighting and decade selection. The location section provides a working city selector and shows how the future city-based experience will be structured. We also built an interactive schematic demonstrating how a fixed temperature threshold can change the measured length of summer.</p></article>
+          <article class="progress-card"><span class="tiny-label">02 / MOST CHALLENGING PART</span><p>The main challenge is extracting daily temperature series for individual cities from the large, cloud-hosted CMIP6 dataset. We need to establish a consistent 1950–1979 baseline and calculate thresholds using the same units and geographic selection rules across every scenario. A further design challenge is handling brief threshold crossings and winter seasons that span calendar years without producing misleading durations. Finally, we must make the results easy to understand while clearly communicating that SSPs are possible futures rather than certain predictions.</p></article>
+        </div>
+    </section>
+  </main>
+
+  
+</body>
+</html>
