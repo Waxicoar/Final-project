@@ -26,11 +26,10 @@
     <section class="intro-panel section-wrap" aria-label="Project introduction">
       <div class="intro-index">THE BIG QUESTION <span>↗</span></div>
       <div class="intro-statement">What if climate change didn’t just make summers <em>hotter</em>—but made them <em>longer?</em></div>
-      <p>Our project investigates how a temperature-based definition of summer and winter may shift across cities under different Shared Socioeconomic Pathways (SSPs). This prototype introduces the story and tests its core interactions while the city-level daily data are being prepared.</p>
+      <p>Our project investigates..</p>
     </section>
 
     <section class="chapter chapter-places section-wrap" id="places" aria-labelledby="places-title">
-      <div class="section-heading"><div class="eyebrow"><span class="section-num">01</span> PLACE MATTERS</div><h2 id="places-title">Climate is <i>local.</i></h2><p>Start with a city. The final experience will calculate summer and winter using daily climate model data for that location—not a global average.</p></div>
       <div class="places-layout">
         <div class="globe-stage">
           <div class="chart-topline"><span>LOCATION EXPLORER</span><span class="chart-topline-end">CLICK A MARKER</span></div>
@@ -54,10 +53,8 @@
 
     <section class="chapter chapter-scenarios" id="scenarios" aria-labelledby="scenarios-title">
       <div class="section-wrap">
-        <div class="section-heading"><div class="eyebrow"><span class="section-num">02</span> THE CHOICES WE MAKE</div><h2 id="scenarios-title">One planet.<br/><i>Three pathways.</i></h2><p>These are verified, published <strong>global</strong> CanESM5 projections. Compare how dramatically the scenarios separate over time—before exploring why their local impacts may differ.</p></div>
         <div class="scenario-layout">
           <div class="viz-card">
-            <div class="viz-card-header"><div><span class="tiny-label">GLOBAL TEMPERATURE CHANGE</span><h3>How far apart could our futures be?</h3></div><span class="unit-label">°C above 1850–1900</span></div>
             <div class="scenario-pills" id="scenario-pills" role="group" aria-label="Highlight scenario"></div>
             <div id="chart-error" class="chart-error" hidden></div>
             <div class="line-graph"><svg id="scenario-chart" role="img" aria-label="Chart of three climate scenarios by decade"></svg><div id="scenario-tooltip" class="chart-tooltip" hidden></div></div>
@@ -68,11 +65,6 @@
             <div class="summary-eyebrow">FOCUS / <span id="active-scenario-label">ALL SCENARIOS</span></div>
             <div class="stat-label" id="stat-label">Projection range this decade</div>
             <div class="stat-value" id="stat-value">—</div><div class="stat-note" id="stat-note">Select a decade or a line to explore.</div>
-            <div class="explain-rule"></div><div class="tiny-label">WHAT DOES SSP MEAN?</div>
-            <div id="scenario-description" class="scenario-description">Shared Socioeconomic Pathways describe alternative futures with different societal and emissions assumptions. They are conditional projections—not promises about what will happen.</div>
-            <div class="scenario-context" id="scenario-context">Choose any pathway to understand its assumptions.</div>
-            <button id="reset-scenarios" class="text-button" type="button">Show all pathways <span>↗</span></button>
-          </aside>
         </div>
       </div>
     </section>
@@ -87,12 +79,9 @@
           <div class="warming-slider"><div class="warming-label"><label for="warming-input">Try a hypothetical temperature increase</label><span id="warming-value">+2.0°C</span></div><input id="warming-input" type="range" min="0" max="6" step="0.5" value="2" /><div class="slider-minmax"><span>0°C</span><span>+6°C</span></div></div>
         </div>
         <aside class="method-result">
-          <div class="tiny-label">WHAT CHANGES?</div><h3>Summer can stretch beyond the calendar.</h3>
           <div class="metric-kicker">ILLUSTRATED WARM-SEASON LENGTH</div><div class="metric-value" id="summer-length">— <small>days</small></div>
           <div class="metric-delta" id="summer-delta">—</div>
           <div class="season-date-list"><div><span>First day above cutoff</span><strong id="summer-start">—</strong></div><div><span>Last day above cutoff</span><strong id="summer-end">—</strong></div><div><span>Baseline warm season</span><strong id="summer-baseline">—</strong></div></div>
-          <p class="method-caveat"><strong>Important:</strong> This is a conceptual illustration generated from a smooth seasonal curve, not a temperature projection for the selected city. Actual season dates and durations will be calculated only after processing city-level CMIP6 daily data.</p>
-        </aside>
       </div>
 
     <section class="chapter chapter-progress" id="progress" aria-labelledby="progress-title">
