@@ -10,10 +10,7 @@
 
   <header class="hero">
     <div class="wrap">
-      <p class="kicker">DSC 106 · Final Project Prototype</p>
       <h1>Your Climate, Your Hometown in 2080</h1>
-      <p class="lede">Your city's hot season is getting longer.<br /><strong>How much longer is a choice.</strong></p>
-      <p class="note">Prototype with synthetic data. Didn't use CMIP6 yet.</p>
     </div>
   </header>
 
@@ -22,7 +19,7 @@
     <!-- ============ ACT 1 ============ -->
     <section class="card" id="act1">
       <h2><span class="tag">1</span> Where do you live?</h2>
-      <p class="sub">Pick a city. We'll show you what its hot season looks like under different futures.</p>
+      <p class="sub"></p>
 
       <div class="search-row">
         <input id="cityInput" list="cityList" placeholder="Start typing a city…" autocomplete="off" />
@@ -32,7 +29,6 @@
       <p id="cityError" class="error" hidden>Pick a city from the list.</p>
 
       <div id="quiz" hidden>
-        <h3>A few questions about the future you'd choose</h3>
         <div id="quizQuestions"></div>
         <div id="verdict" class="verdict" hidden></div>
       </div>
@@ -53,13 +49,12 @@
           <div id="mapTip" class="tooltip" hidden></div>
         </div>
         <div class="legend" id="mapLegend"></div>
-        <p class="caption">Each square is a ~1000&nbsp;km model grid cell (synthetic, supposed to look like world map and the dot is the city you chose).</p>
       </div>
 
       <div class="panel">
         <div class="panel-head">
           <h3>Your year, in temperature</h3>
-          <span class="hint">outlined cells = above the hot-season threshold</span>
+          <span class="hint"></span>
         </div>
         <svg id="calendar" viewBox="0 0 740 200" role="img" aria-label="Calendar heatmap of daily temperature"></svg>
       </div>
@@ -67,7 +62,7 @@
       <div class="panel">
         <div class="panel-head">
           <h3>How sure are we? (model spread)</h3>
-          <span class="hint">eight synthetic climate models</span>
+          <span class="hint"></span>
         </div>
         <svg id="fan" viewBox="0 0 720 230" role="img" aria-label="Fan chart of hot-season days over time"></svg>
       </div>
@@ -80,7 +75,7 @@
     <!-- ============ ACT 3 ============ -->
     <section class="card" id="act3" hidden>
       <h2><span class="tag">3</span> Drag the future</h2>
-      <p class="sub">Move the slider between futures. Everything above will also update</p>
+      <p class="sub"></p>
 
       <div class="scenario-control">
         <input id="sspSlider" type="range" min="0" max="2" step="0.01" value="1" />
@@ -105,7 +100,7 @@
     </section>
 
     <footer class="foot">
-      <p>Prototype for DSC 106 final project. All data is synthetic for ease of prototyping.</p>
+      <p></p>
     </footer>
 
   </main>
